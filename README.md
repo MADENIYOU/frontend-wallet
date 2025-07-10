@@ -1,97 +1,71 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🚀 TerangaID - Votre Identité Numérique Sécurisée
 
-# Getting Started
+Bienvenue sur le projet `walletfront` de TerangaID ! Cette application mobile, développée avec React Native et TypeScript, vise à offrir une plateforme sécurisée pour la gestion de votre identité numérique.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## ✨ Fonctionnalités Implémentées
 
-## Step 1: Start Metro
+Nous avons mis en place les bases solides pour une expérience utilisateur fluide et sécurisée :
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+-   **Page d'Accueil Intuitive** : Une vitrine élégante pour l'application, offrant un accès direct aux fonctionnalités d'inscription et de connexion.
+-   **Formulaire d'Inscription Complet** : Un processus d'enregistrement guidé avec des validations en temps réel pour garantir la qualité des données :
+    -   **Numéro de CNI (NIN)** : Validation de la longueur (13 ou 14 chiffres).
+    -   **Numéro de Téléphone International** : Intégration d'un sélecteur de pays avec affichage du drapeau et validation du format spécifique à chaque pays.
+    -   **Mot de Passe Sécurisé** : Vérification en direct des critères de robustesse (longueur minimale, majuscule, chiffre, caractère spécial).
+-   **Gestion du Thème (Clair/Sombre)** : Un bouton dédié en haut à droite de l'écran permet de basculer entre un thème clair et un thème sombre, avec persistance du choix de l'utilisateur. Tous les composants s'adaptent dynamiquement au thème sélectionné.
+-   **Navigation Robuste** : Mise en place d'une navigation fluide entre les écrans d'accueil, d'inscription et de connexion.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 🛠️ Prérequis
 
-```sh
-# Using npm
-npm start
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
-# OR using Yarn
-yarn start
-```
+-   [Node.js](https://nodejs.org/en/) (version 18 ou supérieure)
+-   [npm](https://www.npmjs.com/) (généralement inclus avec Node.js)
+-   [React Native CLI](https://reactnative.dev/docs/environment-setup) (`npm install -g react-native-cli`)
+-   [Android Studio](https://developer.android.com/studio) (pour l'émulateur Android et les outils de build)
+-   [Xcode](https://developer.apple.com/xcode/) (pour le simulateur iOS et les outils de build, macOS uniquement)
 
-## Step 2: Build and run your app
+## 🚀 Installation et Lancement
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Suivez ces étapes pour configurer et lancer l'application sur votre machine locale :
 
-### Android
+1.  **Cloner le dépôt :**
+    ```bash
+    git clone https://github.com/MADENIYOU/frontend-wallet.git
+    cd frontend-wallet
+    ```
 
-```sh
-# Using npm
-npm run android
+2.  **Installer les dépendances :**
+    ```bash
+    npm install
+    ```
+    _Note : Un patch pour le composant de numéro de téléphone sera automatiquement appliqué lors de l'installation pour assurer l'affichage correct des drapeaux._
 
-# OR using Yarn
-yarn android
-```
+3.  **Lancer l'application :**
 
-### iOS
+    Assurez-vous d'avoir un émulateur Android ou un simulateur iOS en cours d'exécution.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+    -   **Pour Android :**
+        ```bash
+        npx react-native run-android
+        ```
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+    -   **Pour iOS (macOS uniquement) :**
+        ```bash
+        cd ios && bundle install && bundle exec pod install && cd ..
+        npx react-native run-ios
+        ```
 
-```sh
-bundle install
-```
+    _Si vous rencontrez des problèmes de port déjà utilisé, assurez-vous qu'aucune autre instance de Metro Bundler n'est en cours d'exécution._
 
-Then, and every time you update your native dependencies, run:
+## 💡 Utilisation
 
-```sh
-bundle exec pod install
-```
+-   **Navigation :** Utilisez les boutons sur la page d'accueil pour naviguer vers les écrans d'inscription ou de connexion.
+-   **Formulaire d'Inscription :** Remplissez les champs et observez les validations en temps réel. Le bouton "S'inscrire" s'activera une fois toutes les conditions remplies.
+-   **Changement de Thème :** Cliquez sur l'icône 🌙/☀️ en haut à droite de la barre de navigation pour basculer entre le mode clair et le mode sombre.
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## 🔜 Prochaines Étapes
 
-```sh
-# Using npm
-npm run ios
+-   **Page de Connexion :** La page de connexion est actuellement un placeholder. Elle sera développée ultérieurement pour permettre l'authentification des utilisateurs.
+-   **Améliorations Esthétiques :** Affinements supplémentaires de l'interface utilisateur pour une expérience encore plus agréable.
 
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
