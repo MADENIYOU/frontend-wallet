@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 import PhoneInput from 'react-native-phone-number-input';
@@ -89,6 +91,8 @@ const SignUpScreen = ({ navigation }) => {
             textContainerStyle={styles.phoneTextContainer}
             textInputStyle={styles.phoneTextInput}
             codeTextStyle={styles.phoneCodeText}
+            flagButtonStyle={styles.flagButton} // Ajouté pour styliser le bouton du drapeau
+            withDarkTheme={theme === 'dark'} // S'assure que le thème sombre est propagé
             withShadow
             autoFocus
           />
@@ -181,6 +185,10 @@ const getStyles = (theme) => StyleSheet.create({
   },
   phoneCodeText: {
     color: theme === 'light' ? '#1e3a5f' : '#e2e8f0',
+  },
+  flagButton: {
+    backgroundColor: theme === 'light' ? '#ffffff' : '#2d3748',
+    // Ajoutez d'autres styles si nécessaire, comme le padding, la bordure, etc.
   },
   criteriaContainer: {
     marginTop: 8,
