@@ -15,11 +15,13 @@ const SignUpScreen = ({ navigation }) => {
   const { theme } = useContext(ThemeContext);
   const styles = getStyles(theme);
 
+  const [fullName, setFullName] = useState('');
   const [cni, setCni] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [formattedValue, setFormattedValue] = useState('');
   const [password, setPassword] = useState('');
 
+  const [isFullNameValid, setIsFullNameValid] = useState(false);
   const [isCniValid, setIsCniValid] = useState(false);
   const [isPhoneValid, setIsPhoneValid] = useState(false);
   const [passwordCriteria, setPasswordCriteria] = useState({
@@ -27,9 +29,14 @@ const SignUpScreen = ({ navigation }) => {
     uppercase: false,
     number: false,
     specialChar: false,
+    nameNotInPassword: false,
   });
   const [isFormValid, setIsFormValid] = useState(false);
   const phoneInput = useRef(null);
+
+  useEffect(() => {
+    setIsFullNameValid(fullName.trim().length > 0);
+  }, [fullName]);
 
   useEffect(() => {
     setIsCniValid(cni.length === 13 || cni.length === 14);
@@ -41,18 +48,23 @@ const SignUpScreen = ({ navigation }) => {
   }, [formattedValue]);
 
   useEffect(() => {
+    const names = fullName.toLowerCase().split(' ').filter(name => name.length > 0);
+    const passwordLower = password.toLowerCase();
+    const nameNotInPassword = names.length === 0 || names.every(name => !passwordLower.includes(name));
+
     setPasswordCriteria({
       length: password.length >= 10,
       uppercase: /[A-Z]/.test(password),
       number: /[0-9]/.test(password),
       specialChar: /[!@#$%^&*]/.test(password),
+      nameNotInPassword: nameNotInPassword,
     });
-  }, [password]);
+  }, [password, fullName]);
 
   useEffect(() => {
     const allPasswordCriteriaMet = Object.values(passwordCriteria).every(Boolean);
-    setIsFormValid(isCniValid && isPhoneValid && allPasswordCriteriaMet);
-  }, [isCniValid, isPhoneValid, passwordCriteria]);
+    setIsFormValid(isFullNameValid && isCniValid && isPhoneValid && allPasswordCriteriaMet);
+  }, [isFullNameValid, isCniValid, isPhoneValid, passwordCriteria]);
 
   const handleSignUp = () => {
     if (isFormValid) {
@@ -78,10 +90,20 @@ const SignUpScreen = ({ navigation }) => {
         <View style={styles.contentContainer}>
           <Text style={styles.title}>Créer un compte</Text>
 
-        <View style={styles.inputGroup}>
-          <TextInput
-            style={styles.input}
-            placeholder="Numéro de CNI (NIN)"
+          <View style={styles.inputGroup}>
+            <TextInput
+              style={styles.input}
+              placeholder="Prénom et Nom"
+              placeholderTextColor={styles.placeholderText.color}
+              value={fullName}
+              onChangeText={setFullName}
+            />
+          </View>
+
+          <View style={styles.inputGroup}>
+            <TextInput
+              style={styles.input}
+              placeholder="Numéro de CNI (NIN)"
             placeholderTextColor={styles.placeholderText.color}
             keyboardType="numeric"
             value={cni}
@@ -125,6 +147,7 @@ const SignUpScreen = ({ navigation }) => {
             <ValidationIndicator isValid={passwordCriteria.uppercase} text="Au moins une majuscule" theme={theme} />
             <ValidationIndicator isValid={passwordCriteria.number} text="Au moins un chiffre" theme={theme} />
             <ValidationIndicator isValid={passwordCriteria.specialChar} text="Au moins un caractère spécial" theme={theme} />
+            <ValidationIndicator isValid={passwordCriteria.nameNotInPassword} text="Ne doit pas contenir votre nom ou prénom" theme={theme} />
           </View>
         </View>
 
