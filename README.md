@@ -2,6 +2,7 @@
 
 Bienvenue dans le monde de **TerangaID** ! 🌍 Ce projet est le `frontend` de notre application mobile, conçue pour révolutionner la gestion de votre identité numérique. Développée avec la puissance de **React Native** et la rigueur de **TypeScript**, TerangaID vous offre une expérience utilisateur fluide, sécurisée et intuitive.
 
+
 ## ✨ Fonctionnalités Clés & Expérience Utilisateur
 
 Nous avons mis en place les fondations solides pour une interaction utilisateur exceptionnelle :
