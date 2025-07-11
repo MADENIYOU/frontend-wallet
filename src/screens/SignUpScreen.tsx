@@ -91,8 +91,8 @@ const SignUpScreen = ({ navigation }) => {
             textContainerStyle={styles.phoneTextContainer}
             textInputStyle={styles.phoneTextInput}
             codeTextStyle={styles.phoneCodeText}
-            flagButtonStyle={styles.flagButton} // Ajouté pour styliser le bouton du drapeau
-            withDarkTheme={theme === 'dark'} // S'assure que le thème sombre est propagé
+            flagButtonStyle={styles.flagButton}
+            withDarkTheme={theme === 'dark'}
             withShadow
             autoFocus
           />

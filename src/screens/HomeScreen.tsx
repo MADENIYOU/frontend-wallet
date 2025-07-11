@@ -11,6 +11,13 @@ const HomeScreen = ({ navigation }) => {
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle={theme === 'light' ? "dark-content" : "light-content"} />
       <View style={styles.container}>
+        <View style={styles.flagContainer}>
+          <View style={[styles.flagStripe, styles.flagGreen]} />
+          <View style={[styles.flagStripe, styles.flagYellow]}>
+            <Text style={styles.star}>★</Text>
+          </View>
+          <View style={[styles.flagStripe, styles.flagRed]} />
+        </View>
         <Text style={styles.title}>TerangaID</Text>
         <Text style={styles.subtitle}>Votre identité numérique sécurisée</Text>
 
@@ -43,6 +50,34 @@ const getStyles = (theme) => StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+  },
+  flagContainer: {
+    flexDirection: 'row',
+    width: 150,
+    height: 90,
+    marginBottom: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
+    borderWidth: 2,
+    borderColor: theme === 'light' ? '#1e3a5f' : '#f0f4f8',
+  },
+  flagStripe: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  flagGreen: {
+    backgroundColor: '#00853f',
+  },
+  flagYellow: {
+    backgroundColor: '#fdef42',
+  },
+  flagRed: {
+    backgroundColor: '#e31b23',
+  },
+  star: {
+    fontSize: 30,
+    color: '#00853f',
   },
   title: {
     fontSize: 48,
