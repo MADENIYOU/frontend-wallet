@@ -64,7 +64,19 @@ const SignUpScreen = ({ navigation }) => {
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle={theme === 'light' ? "dark-content" : "light-content"} />
       <View style={styles.container}>
-        <Text style={styles.title}>Créer un compte</Text>
+        <View style={styles.headerContainer}>
+          <View style={styles.flagContainer}>
+            <View style={[styles.flagStripe, styles.flagGreen]} />
+            <View style={[styles.flagStripe, styles.flagYellow]}>
+              <Text style={styles.star}>★</Text>
+            </View>
+            <View style={[styles.flagStripe, styles.flagRed]} />
+          </View>
+          <Text style={styles.headerTitle}>TerangaID</Text>
+        </View>
+
+        <View style={styles.contentContainer}>
+          <Text style={styles.title}>Créer un compte</Text>
 
         <View style={styles.inputGroup}>
           <TextInput
@@ -128,6 +140,7 @@ const SignUpScreen = ({ navigation }) => {
           <Text style={styles.loginText}>Déjà un compte ? Connectez-vous</Text>
         </TouchableOpacity>
       </View>
+      </View>
     </SafeAreaView>
   );
 };
@@ -139,8 +152,51 @@ const getStyles = (theme) => StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
     paddingHorizontal: 20,
+    paddingTop: 20, // Ajout de padding en haut
+  },
+  contentContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    marginBottom: 20,
+  },
+  flagContainer: {
+    flexDirection: 'row',
+    width: 45,
+    height: 27,
+    marginRight: 10,
+    borderRadius: 3,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: theme === 'light' ? '#1e3a5f' : '#f0f4f8',
+  },
+  flagStripe: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  flagGreen: {
+    backgroundColor: '#00853f',
+  },
+  flagYellow: {
+    backgroundColor: '#fdef42',
+  },
+  flagRed: {
+    backgroundColor: '#e31b23',
+  },
+  star: {
+    fontSize: 10,
+    color: '#00853f',
+  },
+  headerTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: theme === 'light' ? '#1e3a5f' : '#e2e8f0',
   },
   title: {
     fontSize: 32,
