@@ -8,7 +8,7 @@ Nous avons mis en place les fondations solides pour une interaction utilisateur 
 
 ### 🏠 Page d'Accueil (Vitrine)
 
-Une première impression mémorable ! Notre page d'accueil est une vitrine élégante et accueillante pour l'application. Elle offre un accès direct et clair aux deux actions principales :
+Une première impression mémorable ! Notre page d'accueil est une vitrine élégante et accueillante pour l'application. Elle arbore fièrement le **drapeau du Sénégal** 🇸🇳 au-dessus du titre, affirmant notre identité. Elle offre un accès direct et clair aux deux actions principales :
 
 -   **`Créer un compte`** : Pour les nouveaux utilisateurs désireux de rejoindre TerangaID.
 -   **`Se connecter`** : Pour les utilisateurs existants souhaitant accéder à leur espace.
@@ -16,6 +16,9 @@ Une première impression mémorable ! Notre page d'accueil est une vitrine élé
 ### 📝 Formulaire d'Inscription (Sécurité & Validation)
 
 Un processus d'enregistrement simplifié, mais rigoureux, pour garantir la qualité et la sécurité de vos informations. Chaque champ est validé en temps réel pour une expérience sans frustration :
+
+-   **Prénom et Nom** : 👤
+    -   Un champ unique pour saisir votre identité complète.
 
 -   **Numéro de CNI (NIN)** : 🆔
     -   **Validation en direct** : Le champ vérifie automatiquement si le numéro saisi respecte la longueur requise (13 ou 14 chiffres), avec un feedback visuel instantané.
@@ -27,12 +30,13 @@ Un processus d'enregistrement simplifié, mais rigoureux, pour garantir la quali
     -   _Exemple de feedback_ : `Le numéro de téléphone doit être valide.`
 
 -   **Mot de Passe Sécurisé** : 🔒
-    -   **Indicateurs de Robustesse en Temps Réel** : À chaque caractère saisi, l'application évalue la force de votre mot de passe et affiche une liste de critères (longueur, majuscule, chiffre, caractère spécial) qui se mettent à jour dynamiquement.
+    -   **Indicateurs de Robustesse en Temps Réel** : À chaque caractère saisi, l'application évalue la force de votre mot de passe et affiche une liste de critères qui se mettent à jour dynamiquement.
     -   _Critères de validation_ :
         -   `✔ Au moins 10 caractères`
         -   `✔ Au moins une majuscule`
         -   `✔ Au moins un chiffre`
         -   `✔ Au moins un caractère spécial`
+        -   `✔ Ne doit pas contenir votre nom ou prénom` (vérification insensible à la casse)
 
 -   **Bouton `S'inscrire`** : Ce bouton reste désactivé tant que tous les champs ne sont pas correctement remplis et que toutes les conditions de validation ne sont pas satisfaites. Une fois activé, il vous redirige vers la page de connexion.
 
@@ -94,7 +98,7 @@ Suivez ces étapes simples pour mettre l'application en marche :
 Explorez les fonctionnalités implémentées :
 
 -   **Navigation** : Sur la page d'accueil, utilisez les boutons `Créer un compte` et `Se connecter` pour explorer les différentes sections de l'application.
--   **Formulaire d'Inscription** : Testez les validations en temps réel en saisissant des informations dans les champs CNI, Téléphone et Mot de passe. Observez comment le bouton `S'inscrire` s'active ou se désactive.
+-   **Formulaire d'Inscription** : Testez les validations en temps réel en saisissant des informations dans les champs. Observez comment le bouton `S'inscrire` s'active ou se désactive.
 -   **Changement de Thème** : Cliquez sur l'icône 🌙 ou ☀️ dans la barre de navigation supérieure pour voir l'application basculer instantanément entre les modes clair et sombre.
 
 ## 🔜 Prochaines Étapes & Améliorations Futures
